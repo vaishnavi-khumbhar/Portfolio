@@ -25,7 +25,7 @@ export default defineConfig(({ mode }) => {
   return {
     // GitHub Pages project site: set VITE_BASE=/your-repo-name/ at build time.
     // User site (username.github.io) or GoDaddy: leave unset (defaults to "/").
-    base: env.VITE_BASE || "/",
+base: env.VITE_BASE || (process.env.GITHUB_ACTIONS ? "/Portfolio/" : "/"),
     plugins: [react(), tailwindcss(), siteUrlPlugin(siteUrl)],
     define: {
       __RESUME_AVAILABLE__: JSON.stringify(resumeAvailable),
